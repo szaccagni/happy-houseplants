@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
+import Button from '@mui/material/Button';
 
-export default function LoginForm({ setUser }) {
+export default function LoginForm({ setUser, setShowSignUp, setShowLogin }) {
   const [credentials, setCredentials] = useState({
     email: '',
     password: ''
@@ -27,18 +28,30 @@ export default function LoginForm({ setUser }) {
     }
   }
 
+  function handleClick() {
+    setShowSignUp(true)
+    setShowLogin(false)
+  }
+
   return (
     <div>
       <div className="form-container">
-        <form autoComplete="off" onSubmit={handleSubmit}>
-          <label>Email</label>
-          <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-          <label>Password</label>
-          <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <button type="submit">LOG IN</button>
-        </form>
+        <div>
+          <div>
+            <input type="text" name="email" value={credentials.email} onChange={handleChange} required placeholder='email'/>
+          </div>
+          <div>
+            <input type="password" name="password" value={credentials.password} onChange={handleChange} required placeholder='password'/>
+          </div>
+          <div className='btn-container'>
+            <Button variant="contained" onClick={handleSubmit}>LOG IN</Button>
+          </div>
+        </div>
       </div>
       <p className="error-message">&nbsp;{error}</p>
+      <div className='btn-container'>
+        <Button  variant="contained"  onClick={handleClick}>sign up</Button>
+      </div>
     </div>
   );
 }
