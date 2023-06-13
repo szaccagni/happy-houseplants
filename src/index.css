@@ -13,8 +13,25 @@
   src: URL('./fonts/arimo/Arimo-Regular.otf') format('opentype');
 }
 
+@font-face {
+  font-family: 'synthemesc';
+  src: URL('./fonts/synthemesc/Synthemesc.otf') format('opentype');
+}
+
 * { 
   box-sizing: border-box;
+}
+
+:root {
+  --off-white: #f9f5f1;
+  --light-grey: rgb(160,177,173);
+  --pink: rgb(219,139,200);
+  --teal: #37716C;
+}
+
+body {
+  margin: 0;
+  background-color: var(--off-white);
 }
 
 .btn-container {
@@ -23,12 +40,12 @@
 }
 
 .btn-container button {
-  background-color: darkgreen;
+  background-color: var(--light-grey);
   font-family: 'arimo-regular'
 }
 
 .btn-container button:hover {
-  background-color: green;
+  background-color: var(--pink);
 }
 
 .btn-container button:not(:last-child) {

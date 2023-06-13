@@ -10,7 +10,7 @@ export default function AuthPage({ setUser }) {
 
     return (
         <main className='auth-page'>
-            <img src='/happy-houseplants-logo-large.png' alt="happy-houseplants-logo"></img>
+            <img src='/HappyHouseplants-no-border.png' alt="happy-houseplants-logo"></img>
             {showLogin && <LoginForm setUser={setUser} setShowSignUp={setShowSignUp} setShowLogin={setShowLogin}/>}
             {showSignUp && <SignUpForm setUser={setUser} setShowSignUp={setShowSignUp} setShowLogin={setShowLogin} />}
             { !showLogin && !showSignUp &&
