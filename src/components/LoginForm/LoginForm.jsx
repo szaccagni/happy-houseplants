@@ -1,13 +1,16 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 import * as usersService from '../../utilities/users-service';
 import Button from '@mui/material/Button';
 
-export default function LoginForm({ setUser, setShowSignUp, setShowLogin }) {
+export default function LoginForm({ setUser }) {
   const [credentials, setCredentials] = useState({
     email: '',
     password: ''
   });
   const [error, setError] = useState('');
+
+  const navigate = useNavigate()
 
   function handleChange(evt) {
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
@@ -23,19 +26,16 @@ export default function LoginForm({ setUser, setShowSignUp, setShowLogin }) {
       // payload of the JSON Web Token (JWT)
       const user = await usersService.login(credentials);
       setUser(user);
+      navigate('/plants')
     } catch {
       setError('Log In Failed - Try Again');
     }
   }
 
-  function handleClick() {
-    setShowSignUp(true)
-    setShowLogin(false)
-  }
-
   return (
     <div>
       <div className="form-container">
+      <div><img alt="flowers" src='/flowers-wide.png'></img></div>
         <div>
           <div>
             <input type="text" name="email" value={credentials.email} onChange={handleChange} required placeholder='email'/>
@@ -49,9 +49,6 @@ export default function LoginForm({ setUser, setShowSignUp, setShowLogin }) {
         </div>
       </div>
       <p className="error-message">&nbsp;{error}</p>
-      <div className='btn-container'>
-        <Button  variant="contained"  onClick={handleClick}>sign up</Button>
-      </div>
     </div>
   );
 }

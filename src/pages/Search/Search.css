@@ -1,0 +1,9 @@
+.search-container {
+    width: 50%;
+    margin: auto;
+}
+
+.search-form {
+    display: flex;
+    padding: 5px;
+}

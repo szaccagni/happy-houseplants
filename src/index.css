@@ -27,11 +27,14 @@
   --light-grey: rgb(160,177,173);
   --pink: rgb(219,139,200);
   --teal: #37716C;
+  --light-blue: #C4D8D6;
+  --green: #6D9F66;
 }
 
 body {
   margin: 0;
   background-color: var(--off-white);
+  font-family: 'arimo-regular';
 }
 
 .btn-container {
@@ -50,4 +53,21 @@ body {
 
 .btn-container button:not(:last-child) {
   margin-right: 20px;
+}
+
+.form-container div {
+  width: 50%;
+  margin: auto;
+}
+
+.form-container input {
+  width: 100%;
+  font-size: 20px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.form-container img {
+  width: 50%;
+  margin-bottom: 15px;
 }

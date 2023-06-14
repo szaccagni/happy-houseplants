@@ -1,0 +1,64 @@
+.home-container {
+    width: 70%;
+    margin: 25px auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+}
+
+.home-container>div {
+    margin: 15px;
+}
+
+.flowers img {
+    width: 100%;
+}
+
+.flowers-mobile {
+    display: none;
+}
+
+.flowers-mobile img {
+    width: 100%;
+}
+
+.home-info {
+    background-color: var(--green);
+    font-family:'arimo-regular';
+    padding: 15px 25px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    line-height: 35px;
+    font-size: 25px;
+    color: var(--off-white);
+}
+
+@media screen and (max-width: 700px) {
+    .home-container {
+        width: 70%;
+        margin: 25px auto;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+    }
+    .flowers {
+        display: none;
+    }
+    .flowers-mobile {
+        display: block;
+    }
+    
+}
+
+@media screen and (max-width: 900px) {
+    .home-info {
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .home-container {
+        width: 100%;
+    }
+}

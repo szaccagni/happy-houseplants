@@ -6,15 +6,3 @@
 .auth-page button {
     font-size: 25px;
 }
-
-.form-container div {
-    width: 50%;
-    margin: auto;
-}
-
-.form-container input {
-    width: 100%;
-    font-size: 20px;
-    padding: 5px;
-    margin-bottom: 10px;
-}

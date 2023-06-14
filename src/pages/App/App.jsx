@@ -1,24 +1,30 @@
 import './App.css';
 import { useState } from 'react'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { getUser } from '../../utilities/users-service'
-import AuthPage from '../AuthPage/AuthPage';
 import NavBar from '../../components/NavBar/NavBar'
-import Index from '../Index/Index';
+import Home from '../Home/Home';
+import LoginForm from '../../components/LoginForm/LoginForm'
+import SignUpForm from '../../components/SignUpForm/SignUpForm'
+import PlantsIndex from '../PlantsIndex/PlantsIndex';
+import Search from '../Search/Search'
 
 export default function App() {
   const [ user, setUser ] = useState(getUser())
 
   return (
     <main className="App">
-      {
-        user ?
         <>
           <NavBar user={user} setUser={setUser} />
-          <Index />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/plants" element={<PlantsIndex />}></Route>
+            <Route path="/search" element={<Search />}></Route>
+            <Route path="/login" element={<LoginForm setUser={setUser} />} />
+            <Route path="/signup" element={<SignUpForm setUser={setUser} />} />
+            <Route path="/*" element={<Navigate to="/" />}></Route>
+          </Routes>
         </>
-        :
-        <AuthPage setUser={setUser} />
-      }
     </main>
   );
 }

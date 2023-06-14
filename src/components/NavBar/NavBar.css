@@ -1,8 +1,13 @@
-nav {
+.nav-bar {
     margin: 15px 0;
     border-top: 1px solid #222;
     border-bottom: 1px solid #222;
     padding: 25px;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .nav-grid {
@@ -17,18 +22,18 @@ nav {
 }
 
 .nav-left {
-    font-family: 'arimo-regular';
+    font-family: 'roboto-medium';
     display: flex;
     align-items: center;
 }
 
 .nav-left div:not(:last-child) {
-    margin-right:10px; 
+    margin-right:20px; 
 }
 
 .nav-right {
     display: flex;
-    font-family: 'arimo-regular';
+    font-family: 'roboto-medium';
     justify-content: flex-end;
     align-items: center;
 }

@@ -1,71 +1,71 @@
-import { Component } from 'react'
-import { signUp } from '../../utilities/users-service'
+import { useState } from 'react';
+import { signUp } from '../../utilities/users-service';
+import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 
-export default class SignUpForm extends Component {
-  state = {
-      name: '',
-      email: '',
-      password: '',
-      confirm: '',
-      error: ''
+export default function SignUpForm(props) {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirm, setConfirm] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+
+  const handleChange = (evt) => {
+    const { name, value } = evt.target;
+    setError('');
+    if (name === 'name') {
+      setName(value);
+    } else if (name === 'email') {
+      setEmail(value);
+    } else if (name === 'password') {
+      setPassword(value);
+    } else if (name === 'confirm') {
+      setConfirm(value);
+    }
   }
 
-  handleChange = (evt) => {
-      this.setState({
-          [evt.target.name]: evt.target.value,
-          error: ''
-      })
-  }
-
-  handleSubmit = async (evt) => {
-      evt.preventDefault();
-      try {
-        const formData = {
-          name: this.state.name,
-          email: this.state.email,
-          password: this.state.password
-        }
-        const user = await signUp(formData)
-        this.props.setUser(user)
-      } catch {
-        this.setState({ error: 'Sign Up Failed - Try Again' })
+  const handleSubmit = async (evt) => {
+    evt.preventDefault();
+    try {
+      const formData = {
+        name: name,
+        email: email,
+        password: password
       }
-  } 
-
-  handleClick = () => {
-    this.props.setShowLogin(true)
-    this.props.setShowSignUp(false)
+      const user = await signUp(formData)
+      props.setUser(user);
+      navigate('/plants');
+    } catch {
+      setError('Sign Up Failed - Try Again');
+    }
   }
 
-  render() {
-    const disable = this.state.password !== this.state.confirm;
-    return (
-      <div>
-        <div className="form-container">
+  const disable = password !== confirm;
+
+  return (
+    <div>
+      <div className="form-container">
+        <div><img alt="flowers" src='/flowers-wide.png'></img></div>
+        <div>
           <div>
-            <div>
-              <input type="text" name="name" value={this.state.name} onChange={this.handleChange} placeholder='name' required />
-            </div>
-            <div>
-              <input type="email" name="email" value={this.state.email} onChange={this.handleChange} placeholder='email' required />
-            </div>            
-            <div>
-              <input type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder='password' required />
-            </div>
-            <div>
-              <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} placeholder='confirm password' required />
-            </div>
-            <div className='btn-container'>
-              <Button variant="contained" disabled={disable} onClick={this.handleSubmit}>SIGN UP</Button>
-            </div>
+            <input type="text" name="name" value={name} onChange={handleChange} placeholder='name' required />
+          </div>
+          <div>
+            <input type="email" name="email" value={email} onChange={handleChange} placeholder='email' required />
+          </div>
+          <div>
+            <input type="password" name="password" value={password} onChange={handleChange} placeholder='password' required />
+          </div>
+          <div>
+            <input type="password" name="confirm" value={confirm} onChange={handleChange} placeholder='confirm password' required />
+          </div>
+          <div className='btn-container'>
+            <Button variant="contained" disabled={disable} onClick={handleSubmit}>SIGN UP</Button>
           </div>
         </div>
-        <p className="error-message">&nbsp;{this.state.error}</p>
-        <div className='btn-container'>
-          <Button variant="contained" onClick={this.handleClick}>log in</Button>
-        </div>
       </div>
-    );
-  }
+      <p className="error-message">&nbsp;{error}</p>
+    </div>
+  );
 }
