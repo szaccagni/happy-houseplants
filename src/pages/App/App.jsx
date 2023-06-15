@@ -9,14 +9,26 @@ import SignUpForm from '../../components/SignUpForm/SignUpForm'
 import PlantsIndex from '../PlantsIndex/PlantsIndex';
 import Search from '../Search/Search'
 import Detail from '../Detail/Detail';
+import * as plantsAPI from '../../utilities/plant-api'
+import { useEffect } from 'react'
 
 export default function App() {
   const [ user, setUser ] = useState(getUser())
   const [ plant, setPlant ] = useState(getCurPlant())
+  const [ userPlants, setUserPlants] = useState([])
+
+  useEffect(function() {
+    getUserPlants()
+  }, [])
 
   function getCurPlant() {
     const storedPlant = localStorage.getItem('plant');
     return (JSON.parse(storedPlant) || '')
+  }
+
+  async function getUserPlants() {
+    const plants = await plantsAPI.yourPlants()
+    setUserPlants(plants)
   }
 
   return (
@@ -25,8 +37,8 @@ export default function App() {
           <NavBar user={user} setUser={setUser} />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/plants" element={<PlantsIndex />}></Route>
-            <Route path="/search" element={<Search user={user} setPlant={setPlant} />}></Route>
+            <Route path="/plants" element={<PlantsIndex userPlants={userPlants} />}></Route>
+            <Route path="/search" element={<Search user={user} setPlant={setPlant} getUserPlants={getUserPlants} />}></Route>
             <Route path="/login" element={<LoginForm setUser={setUser} />} />
             <Route path="/signup" element={<SignUpForm setUser={setUser} />} />
             <Route path="/details" element={<Detail user={user} plant={plant}/>} />

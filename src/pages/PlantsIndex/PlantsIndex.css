@@ -1,0 +1,26 @@
+.your-plant-container {
+    display: grid;   
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 15px;
+    padding: 45px;
+}
+
+.your-plant-container img {
+    width: 100%;
+}
+
+.plant-title {
+    padding: 14px 0 14px 0;
+    font-family: 'roboto-bold';
+}
+
+.plant-card-container {
+    background-color: var(--tan);
+    padding-bottom: 15px;
+}
+
+.water-needs {
+    cursor: pointer;
+    width: fit-content;
+    margin: 15px auto 0 auto;
+}

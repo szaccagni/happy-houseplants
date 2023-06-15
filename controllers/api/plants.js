@@ -5,7 +5,8 @@ const BASE_URL = `https://perenual.com/api`
 module.exports = {
     search,
     detail,
-    addPlant
+    addPlant,
+    yourPlants
 }
 
 async function search(req, res) {
@@ -85,4 +86,12 @@ async function detail(req, res) {
 async function addPlant(req, res) {
     const plant = await Plant.create(req.body.plant)
     res.json(plant)
+}
+
+async function yourPlants(req, res) {
+    let plants = []
+    if (req.user) {
+        plants = await Plant.find({user: req.user._id})
+    }
+    res.json(plants)
 }

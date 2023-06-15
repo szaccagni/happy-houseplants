@@ -13,3 +13,7 @@ export async function getDetails(id) {
 export async function addPlant(plant) {
     return sendRequest(`${BASE_URL}`, 'POST', {plant})
 }
+
+export async function yourPlants() {
+    return sendRequest(`${BASE_URL}`)
+}

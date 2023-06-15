@@ -7,5 +7,6 @@ router.get('/details/:id', plantsCtrl.detail)
 router.post('/search/:term', plantsCtrl.search)
 
 router.post('/', ensureLoggedIn, plantsCtrl.addPlant)
+router.get('/', ensureLoggedIn, plantsCtrl.yourPlants)
 
 module.exports = router;
