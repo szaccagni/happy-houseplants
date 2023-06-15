@@ -8,9 +8,11 @@ import LoginForm from '../../components/LoginForm/LoginForm'
 import SignUpForm from '../../components/SignUpForm/SignUpForm'
 import PlantsIndex from '../PlantsIndex/PlantsIndex';
 import Search from '../Search/Search'
+import Detail from '../Detail/Detail';
 
 export default function App() {
   const [ user, setUser ] = useState(getUser())
+  const [ plant, setPlant ] = useState('')
 
   return (
     <main className="App">
@@ -19,9 +21,10 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/plants" element={<PlantsIndex />}></Route>
-            <Route path="/search" element={<Search />}></Route>
+            <Route path="/search" element={<Search setPlant={setPlant} />}></Route>
             <Route path="/login" element={<LoginForm setUser={setUser} />} />
             <Route path="/signup" element={<SignUpForm setUser={setUser} />} />
+            <Route path="/details" element={<Detail plant={plant}/>} />
             <Route path="/*" element={<Navigate to="/" />}></Route>
           </Routes>
         </>

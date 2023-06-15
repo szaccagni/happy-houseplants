@@ -18,7 +18,9 @@
 }
 
 .result-card {
-    background-color: var(--light-grey);
+    /* background-color: rgba(46,139,87, .5); */
+    background-color: rgba(191,179,59, .7);
+    color: var(--off-white);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,4 +46,19 @@
 
 .cur-search {
     margin: 20px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+}
+
+.overlay button {
+    margin-bottom: 7px;
+    margin-right: 0 !important;
 }

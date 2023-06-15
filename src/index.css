@@ -29,6 +29,7 @@
   --teal: #37716C;
   --light-blue: #C4D8D6;
   --green: #6D9F66;
+  --tan: rgb(237,229,221)
 }
 
 body {
@@ -69,5 +70,5 @@ body {
 
 .form-container img {
   width: 50%;
-  margin-bottom: 15px;
+  margin: 15px 0;
 }
