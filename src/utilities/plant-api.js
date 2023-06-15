@@ -9,3 +9,7 @@ export async function search(term, pg) {
 export async function getDetails(id) {
     return sendRequest(`${BASE_URL}/details/${id}`)
 }
+
+export async function addPlant(plant) {
+    return sendRequest(`${BASE_URL}`, 'POST', {plant})
+}

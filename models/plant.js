@@ -3,19 +3,25 @@ const Schema = mongoose.Schema
 
 const plantSchema = new Schema({
     apiID : String,
-    common_name : String,
-    scientific_name : [],
-    origin: [],
-    type: String,
-    watering : String,
-    wateringDescription: String,
-    sunlight : [],
-    sunlightDescription: String,
     care_level: String,
+    common_name : String,
+    description: String,
     img : {
         regular_url: '',
         thumbnail: ''
-    }
+    },
+    origin: [],
+    scientific_name : [],
+    sunlight : [],
+    sunlightDescription: String,
+    type: String,
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    watering : String,
+    wateringDescription: String,
 }, {
     timestamps: true
 })

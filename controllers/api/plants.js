@@ -4,7 +4,8 @@ const BASE_URL = `https://perenual.com/api`
 
 module.exports = {
     search,
-    detail
+    detail,
+    addPlant
 }
 
 async function search(req, res) {
@@ -80,3 +81,8 @@ async function detail(req, res) {
         res.status(500).json({ message: error.message });
     }
 }  
+
+async function addPlant(req, res) {
+    const plant = await Plant.create(req.body.plant)
+    res.json(plant)
+}

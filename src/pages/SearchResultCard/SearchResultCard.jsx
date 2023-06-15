@@ -20,8 +20,14 @@ export default function SearchResultCard({user, item, setPlant}) {
         setImgContainer({opacity: '1'})
     };
 
-    function addPlant() {
-        console.log('add plant');
+    async function addPlant() {
+        try {
+            const data = await plantsAPI.getDetails(item.apiID);
+            data.user = user
+            const res = await plantsAPI.addPlant(data)
+        } catch (error) {
+            console.log(error)
+        }
     };
 
     async function plantDetails() {

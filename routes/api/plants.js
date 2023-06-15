@@ -6,4 +6,6 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn')
 router.get('/details/:id', plantsCtrl.detail)
 router.post('/search/:term', plantsCtrl.search)
 
+router.post('/', ensureLoggedIn, plantsCtrl.addPlant)
+
 module.exports = router;
