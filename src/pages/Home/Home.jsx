@@ -6,7 +6,7 @@ export default function Home() {
             <div className="home-info">
                 <div>
                     Happy Houseplants is here to help you keep your leafy roommates healthy and thriving! <br></br>
-                    <strong>Log In to catalog your plants to get reminders about how often they need water and sunlight. </strong>
+                    <strong>Log in to catalog your plants, learn about how much sunlight they need, and track how often they need water. </strong>
                 </div>
             </div>
             <div className="flowers">

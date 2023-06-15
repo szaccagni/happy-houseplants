@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import Button from '@mui/material/Button';
 import * as plantsAPI from '../../utilities/plant-api'
 
-export default function SearchResultCard({item, setPlant}) {
+export default function SearchResultCard({user, item, setPlant}) {
     const [showBtn, setShowBtn] = useState(false)
     const [noInfo, setNoInfo] = useState(false)
     const [imgContainer, setImgContainer] = useState({})
@@ -27,6 +27,7 @@ export default function SearchResultCard({item, setPlant}) {
     async function plantDetails() {
         try {
             const data = await plantsAPI.getDetails(item.apiID);
+            localStorage.setItem('plant', JSON.stringify(data));
             setPlant(data);
             navigate('/details');
         } catch (error) {
@@ -47,7 +48,7 @@ export default function SearchResultCard({item, setPlant}) {
                 'https://t4.ftcdn.net/jpg/04/99/93/31/360_F_499933117_ZAUBfv3P1HEOsZDrnkbNCt4jc3AodArl.jpg'} alt={item.common_name} />
                 {showBtn && (
                 <div className="btn-container overlay">
-                    <Button variant="contained" onClick={addPlant}>Add Plant</Button>
+                    { user && <Button variant="contained" onClick={addPlant}>Add Plant</Button>}
                     <Button variant="contained" onClick={plantDetails}>See Details</Button>
                 </div>
                 )}

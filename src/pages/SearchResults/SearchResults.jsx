@@ -6,7 +6,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import SearchResultCard from '../SearchResultCard/SearchResultCard'
 import './SearchResults.css'
 
-export default function SearchResults({curSearch, curData, setCurData, pagination, setPagination, handleSearch, setPlant}) {
+export default function SearchResults({user, curSearch, curData, setCurData, pagination, setPagination, handleSearch, setPlant}) {
 
     async function handleChange(event, page) {
         setCurData([])
@@ -22,7 +22,7 @@ export default function SearchResults({curSearch, curData, setCurData, paginatio
             <div className='cur-search'>showing results for: {curSearch}</div>
             <div className='results-masonry'>
                 {curData.map((item, idx) => 
-                    <SearchResultCard key={idx} item={item} setPlant={setPlant} />
+                    <SearchResultCard key={idx} user={user} item={item} setPlant={setPlant} />
                 )}
             </div>
             <Stack spacing={2} className='pagination-container'>

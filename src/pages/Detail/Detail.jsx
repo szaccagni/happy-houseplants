@@ -1,6 +1,16 @@
+import { useEffect } from 'react';
 import './Detail.css'
+import Button from '@mui/material/Button';
 
-export default function Deatil({plant}) {
+export default function Deatil({user, plant}) {
+    useEffect(() => {
+        window.scrollTo(0, 0); // Scroll to the top of the page when component mounts
+    }, []);
+
+    function handleClick() {
+        console.log(':)')
+    }
+
     return (
         <>
         <div className='detail-container'>
@@ -33,6 +43,9 @@ export default function Deatil({plant}) {
                         <div className='grid-left'>
                             {plant.sunlight.join(', ')}
                         </div>
+                    </div>
+                    <div className='btn-container detail-btn'>
+                        {user && <Button variant="contained" onClick={handleClick}>Add Plant to Inventory</Button>}
                     </div>
                 </div>
             </div>

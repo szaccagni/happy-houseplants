@@ -12,7 +12,12 @@ import Detail from '../Detail/Detail';
 
 export default function App() {
   const [ user, setUser ] = useState(getUser())
-  const [ plant, setPlant ] = useState('')
+  const [ plant, setPlant ] = useState(getCurPlant())
+
+  function getCurPlant() {
+    const storedPlant = localStorage.getItem('plant');
+    return (JSON.parse(storedPlant) || '')
+  }
 
   return (
     <main className="App">
@@ -21,10 +26,10 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/plants" element={<PlantsIndex />}></Route>
-            <Route path="/search" element={<Search setPlant={setPlant} />}></Route>
+            <Route path="/search" element={<Search user={user} setPlant={setPlant} />}></Route>
             <Route path="/login" element={<LoginForm setUser={setUser} />} />
             <Route path="/signup" element={<SignUpForm setUser={setUser} />} />
-            <Route path="/details" element={<Detail plant={plant}/>} />
+            <Route path="/details" element={<Detail user={user} plant={plant}/>} />
             <Route path="/*" element={<Navigate to="/" />}></Route>
           </Routes>
         </>

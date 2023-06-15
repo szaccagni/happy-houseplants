@@ -38,9 +38,9 @@
 }
 
 .plant-detail-info {
-    padding: 130px 20px;
+    padding: 130px 20px 70px 20px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: .65fr 1fr;
     grid-gap: 15px;
 }
 
@@ -98,4 +98,8 @@
     justify-content: center;
     display: flex;
     align-items: center;
+}
+
+.detail-btn {
+    margin-bottom: 50px;
 }
