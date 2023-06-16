@@ -62,15 +62,37 @@
     border: 1px solid darkred;
 }
 
+.no-plants-msg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    width: 50%;
+    margin: auto;
+    font-family: 'roboto-bold';
+}
+
+.no-plants-msg img {
+    padding-top: 30px;
+    width: 50%;
+}
+
 
 @media screen and (max-width: 550px) {
     .your-plant-container {
         grid-template-columns: 1fr;
+    }
+    .no-plants-msg {
+        width: 70%;
     }
 }
 
 @media screen and (max-width: 800px) and (min-width: 550px) {
     .your-plant-container {
         grid-template-columns: 1fr 1fr;
+    }
+    .no-plants-msg {
+        width: 70%;
     }
 }
