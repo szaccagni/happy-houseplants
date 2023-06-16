@@ -29,7 +29,7 @@ export default function NavBar({ user, setUser, setEditInventory }) {
                                     <Link className='nav-dropdown-item' to="/plants" onClick={() => setEditInventory(true)}>Edit Inventory</Link>
                                 </div>
                                 <div>
-                                    <Link className='nav-dropdown-item' to="/plants/schedule">Watering Schdeule</Link>
+                                    <Link className='nav-dropdown-item' to="/plants/schedule">Watering Schedule</Link>
                                 </div>
                             </div>                            
                         </>}
