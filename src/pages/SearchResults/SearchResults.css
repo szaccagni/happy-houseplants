@@ -63,13 +63,19 @@
     margin-right: 0 !important;
 }
 
+.info-error-msg {
+    width: 70%;
+    background-color: white;
+    color: darkred;
+}
+
 @media screen and (max-width: 750px) {
     .results-masonry {
         columns: 1;
     }   
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 900px) and (min-width: 750px){
     .results-masonry {
         columns: 2;
     }   

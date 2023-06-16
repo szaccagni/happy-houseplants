@@ -123,4 +123,8 @@
     .plant-detail-info {
         padding: 65px 40px 35px 0;
     }
+    .care-grid {
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
 }
