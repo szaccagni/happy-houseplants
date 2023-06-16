@@ -82,3 +82,14 @@ body {
     width: 90%;
   }
 }
+
+
+@media screen and (max-width: 800px) and (min-width: 550px){
+  .form-container div {
+    width: 70%;
+    margin: auto;
+}
+.form-container img {
+    width: 70%;
+}
+}

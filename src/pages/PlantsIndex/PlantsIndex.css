@@ -68,3 +68,9 @@
         grid-template-columns: 1fr;
     }
 }
+
+@media screen and (max-width: 800px) and (min-width: 550px) {
+    .your-plant-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
