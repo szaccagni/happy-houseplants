@@ -11,53 +11,60 @@ import { Link } from 'react-router-dom'
 export default function NavBarMobile({ user, setEditInventory, handleLogOut}) {
     const [menuOpen, setMenuOpen] = useState(false);
 
-    const handleMenuClick = () => {
+    function handleMenuClick() {
       setMenuOpen(!menuOpen);
+    };
+
+    function handleLinkClick() {
+        setMenuOpen(false);
     };
 
     return (
         <nav>
         <Box sx={{ flexGrow: 1 }} className='nav-bar'>
             <AppBar position="static" className='mobile-nav-bar'>
-                <Toolbar style={{display:'flex', justifyContent: 'space-between'}}>
+                <Toolbar className='mobile-nav-bar-style'>
                 <IconButton
                     size="large"
                     edge="start"
                     color="inherit"
                     aria-label="menu"
-                    style={{color: 'black', transform: 'scale(1.5)'}}
+                    style={{color: 'black', transform: 'scale(1.5)', marginRight:'25px'}}
                     onClick={handleMenuClick}
                 >
                     <MenuIcon />
                 </IconButton>
                 <div className='nav-title mobile-title'><Link to="">HAPPY HOUSEPLANTS</Link></div>
-                {
-                    user ? 
-                    <div className='nav-right'><Link to="" onClick={handleLogOut}>Log Out</Link></div>
-                    : 
-                    <div className='nav-right'>
-                        <div><Link to="/login">Log In</Link></div> &nbsp; | &nbsp;
-                        <div><Link to="/signup">Sign Up</Link></div>
-                    </div>
-                }
                 </Toolbar>
             </AppBar>
         </Box>
         <Collapse in={menuOpen} timeout="auto" unmountOnExit>
             <div className="dropdown-menu">
-                <div className='nav-dropdown-item'>
-                    <Link to="/search">Browse All</Link>
+                <div>
+                    <Link className='nav-dropdown-item' to="/search" onClick={handleLinkClick}>Browse All</Link>
                 </div>
-                { user && 
+                { user ? 
                 <>
-                    <div className='nav-dropdown-item'>
-                        <Link to="/plants" onClick={() => setEditInventory(false)}>Your Inventory</Link>
+                    <div>
+                        <Link className='nav-dropdown-item' to="/plants" onClick={() => { setEditInventory(false); handleLinkClick(); }}>Your Inventory</Link>
                     </div>
-                    <div className='nav-dropdown-item'>
-                        <Link to="/plants" onClick={() => setEditInventory(true)}>Edit Inventory</Link>
+                    <div>
+                        <Link className='nav-dropdown-item' to="/plants" onClick={() => { setEditInventory(true); handleLinkClick(); }}>Edit Inventory</Link>
                     </div>
-                    <div className='nav-dropdown-item'>
-                        <Link to="/plants/schedule">Watering Schdeule</Link>
+                    <div>
+                        <Link className='nav-dropdown-item' to="/plants/schedule" onClick={handleLinkClick}>Watering Schdeule</Link>
+                    </div>
+                    <div>
+                        <Link className='nav-dropdown-item' to="" onClick={handleLogOut}>Log Out</Link>
+                    </div>
+                </>
+                : 
+                <>
+                    <div>
+                        <Link className='nav-dropdown-item' to="/login" onClick={handleLinkClick}>Log In</Link>
+                    </div>
+                    <div>
+                    <Link className='nav-dropdown-item' to="/signup" onClick={handleLinkClick}>Sign Up</Link>
                     </div>
                 </>
                 }

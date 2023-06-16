@@ -23,14 +23,14 @@ export default function NavBar({ user, setUser, setEditInventory }) {
                         <>
                             <div className='right-20'><Link to="/plants">Your Plants</Link></div>
                             <div className='nav-dropdown-content'>
-                                <div className='nav-dropdown-item'>
-                                    <Link to="/plants" onClick={() => setEditInventory(false)}>Your Inventory</Link>
+                                <div>
+                                    <Link className='nav-dropdown-item' to="/plants" onClick={() => setEditInventory(false)}>Your Inventory</Link>
                                 </div>
-                                <div className='nav-dropdown-item'>
-                                    <Link to="/plants" onClick={() => setEditInventory(true)}>Edit Inventory</Link>
+                                <div>
+                                    <Link className='nav-dropdown-item' to="/plants" onClick={() => setEditInventory(true)}>Edit Inventory</Link>
                                 </div>
-                                <div className='nav-dropdown-item'>
-                                    <Link to="/plants/schedule">Watering Schdeule</Link>
+                                <div>
+                                    <Link className='nav-dropdown-item' to="/plants/schedule">Watering Schdeule</Link>
                                 </div>
                             </div>                            
                         </>}

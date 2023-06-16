@@ -21,7 +21,7 @@ export default function App() {
 
   useEffect(function() {
     getUserPlants()
-  }, [])
+  }, [user])
 
   function getCurPlant() {
     const storedPlant = localStorage.getItem('plant');
