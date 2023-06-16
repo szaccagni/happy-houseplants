@@ -9,13 +9,15 @@ import SignUpForm from '../../components/SignUpForm/SignUpForm'
 import PlantsIndex from '../PlantsIndex/PlantsIndex';
 import Search from '../Search/Search'
 import Detail from '../Detail/Detail';
+import WateringSchedule from '../WateringSchedule/WateringSchedule';
 import * as plantsAPI from '../../utilities/plant-api'
 import { useEffect } from 'react'
 
 export default function App() {
   const [ user, setUser ] = useState(getUser())
   const [ plant, setPlant ] = useState(getCurPlant())
-  const [ userPlants, setUserPlants] = useState([])
+  const [ userPlants, setUserPlants ] = useState([])
+  const [ editInventory, setEditInventory ] = useState(false)
 
   useEffect(function() {
     getUserPlants()
@@ -31,17 +33,23 @@ export default function App() {
     setUserPlants(plants)
   }
 
+  async function removePlant(id) {
+    await plantsAPI.deletePlant(id)
+    getUserPlants()
+  }
+
   return (
     <main className="App">
         <>
-          <NavBar user={user} setUser={setUser} />
+          <NavBar user={user} setUser={setUser} setEditInventory={setEditInventory}/>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/plants" element={<PlantsIndex userPlants={userPlants} />}></Route>
+            <Route path="/plants" element={<PlantsIndex userPlants={userPlants} editInventory={editInventory} setEditInventory={setEditInventory} removePlant={removePlant}/>}></Route>
+            <Route path="/plants/schedule" element={<WateringSchedule userPlants={userPlants} getUserPlants={getUserPlants}/>}></Route>
             <Route path="/search" element={<Search user={user} setPlant={setPlant} getUserPlants={getUserPlants} />}></Route>
             <Route path="/login" element={<LoginForm setUser={setUser} />} />
             <Route path="/signup" element={<SignUpForm setUser={setUser} />} />
-            <Route path="/details" element={<Detail user={user} plant={plant}/>} />
+            <Route path="/details" element={<Detail user={user} plant={plant} getUserPlants={getUserPlants}/>} />
             <Route path="/*" element={<Navigate to="/" />}></Route>
           </Routes>
         </>

@@ -1,14 +1,22 @@
 import { useEffect } from 'react';
 import './Detail.css'
 import Button from '@mui/material/Button';
+import * as plantsAPI from '../../utilities/plant-api'
 
-export default function Deatil({user, plant}) {
+export default function Deatil({user, plant, getUserPlants}) {
     useEffect(() => {
         window.scrollTo(0, 0); // Scroll to the top of the page when component mounts
     }, []);
 
-    function handleClick() {
-        console.log(':)')
+    async function addPlant() {
+        try {
+            const data = await plantsAPI.getDetails(plant.apiID);
+            data.user = user
+            const res = await plantsAPI.addPlant(data)
+            await getUserPlants() 
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     return (
@@ -45,7 +53,7 @@ export default function Deatil({user, plant}) {
                         </div>
                     </div>
                     <div className='btn-container detail-btn'>
-                        {user && <Button variant="contained" onClick={handleClick}>Add Plant to Inventory</Button>}
+                        {user && <Button variant="contained" onClick={addPlant}>Add Plant to Inventory</Button>}
                     </div>
                 </div>
             </div>

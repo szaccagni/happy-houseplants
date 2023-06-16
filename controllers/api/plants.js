@@ -6,7 +6,9 @@ module.exports = {
     search,
     detail,
     addPlant,
-    yourPlants
+    yourPlants, 
+    deletePlant,
+    recordWatering
 }
 
 async function search(req, res) {
@@ -94,4 +96,20 @@ async function yourPlants(req, res) {
         plants = await Plant.find({user: req.user._id})
     }
     res.json(plants)
+}
+
+async function deletePlant(req, res) {
+    try {
+        await Plant.deleteOne({_id: req.params.id})
+        res.json('plant removed')
+    } catch(err) {
+        res.json(`error: ${err}`)
+    }
+}
+
+async function recordWatering(req, res) {
+    const plant = await Plant.findById(req.params.id)
+    plant.wateredOn.push(req.body.date)
+    plant.save()
+    res.json(plant)
 }

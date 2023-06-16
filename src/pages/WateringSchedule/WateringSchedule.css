@@ -1,0 +1,51 @@
+.watering-container {
+    width: 100%;
+}
+
+.watering-card {
+    width: 65%;
+    margin: 25px auto 5px auto;
+    padding: 10px 15px;
+    background-color: var(--off-white);
+    border: 2px solid #222;
+}
+
+.yellow-shadow {
+    box-shadow: 6px 6px 0 0 #bfb33b;
+}
+
+.blue-shadow {
+    box-shadow: 6px 6px 0 0 #3bbfcb;
+}
+
+.watering-card-title {
+    font-family: 'roboto-bold';
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.suggestion {
+    display: grid;
+    grid-template-columns: .1fr .7fr .3fr;
+    margin: auto;
+    width: 70%;
+    grid-gap: 12px;
+}
+
+.suggestion img {
+    width: 100px;;
+}
+
+.suggestion div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.watered-today {
+    margin-left: 25px;
+}
+
+.watered-today img {
+    width: 100px;
+}

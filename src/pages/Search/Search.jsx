@@ -7,7 +7,7 @@ import { useState } from "react";
 import './Search.css'
 import * as plantsAPI from '../../utilities/plant-api'
 
-export default function Search({user, setPlant}) {
+export default function Search({user, setPlant, getUserPlants}) {
     const [searchTerm, setSearchTerm] = useState("");
     const [curData, setCurData] = useState([])
     const [pagination, setPagination] = useState({})
@@ -60,7 +60,7 @@ export default function Search({user, setPlant}) {
         </div>
         {curSearch && 
             <>
-            {curData.length > 0 ? <SearchResults user={user} curSearch={curSearch} setCurData={setCurData} curData={curData} pagination={pagination} setPagination={setPagination} handleSearch={handleSearch} setPlant={setPlant} /> : <div className='cur-search'>loading...</div>}
+            {curData.length > 0 ? <SearchResults user={user} curSearch={curSearch} setCurData={setCurData} curData={curData} pagination={pagination} setPagination={setPagination} handleSearch={handleSearch} setPlant={setPlant} getUserPlants={getUserPlants}/> : <div className='cur-search'>loading...</div>}
             </>
         }
         </>

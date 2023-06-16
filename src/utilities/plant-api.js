@@ -17,3 +17,11 @@ export async function addPlant(plant) {
 export async function yourPlants() {
     return sendRequest(`${BASE_URL}`)
 }
+
+export async function deletePlant(plantId) {
+    return sendRequest(`${BASE_URL}/${plantId}`, 'DELETE')
+}
+
+export async function recordWatering(plantId, date) {
+    return sendRequest(`${BASE_URL}/${plantId}`, 'PUT', {date})
+}

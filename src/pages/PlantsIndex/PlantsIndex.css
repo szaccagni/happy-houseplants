@@ -24,3 +24,40 @@
     width: fit-content;
     margin: 15px auto 0 auto;
 }
+
+.editing-link {    
+    margin: 25px auto 0 25px;
+}
+
+.editing-link a {
+    width: 200px;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    background-color: var(--light-blue);
+}
+
+.editing-link a:hover {
+    background-color: var(--pink);
+}
+
+.card-title-container {
+    position: relative;
+}
+
+.card-title-container button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    background-color: red;
+    border: 1px solid red;
+    color: white;
+    border-radius: 7px;
+}
+
+.card-title-container button:hover {
+    cursor: pointer;
+    background-color: darkred;
+    border: 1px solid darkred;
+}

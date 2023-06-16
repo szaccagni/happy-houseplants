@@ -8,5 +8,7 @@ router.post('/search/:term', plantsCtrl.search)
 
 router.post('/', ensureLoggedIn, plantsCtrl.addPlant)
 router.get('/', ensureLoggedIn, plantsCtrl.yourPlants)
+router.put('/:id', ensureLoggedIn, plantsCtrl.recordWatering)
+router.delete('/:id', ensureLoggedIn, plantsCtrl.deletePlant)
 
 module.exports = router;

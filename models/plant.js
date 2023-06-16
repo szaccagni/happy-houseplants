@@ -22,6 +22,7 @@ const plantSchema = new Schema({
     },
     watering : String,
     wateringDescription: String,
+    wateredOn : []
 }, {
     timestamps: true
 })

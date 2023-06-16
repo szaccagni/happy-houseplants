@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import Button from '@mui/material/Button';
 import * as plantsAPI from '../../utilities/plant-api'
 
-export default function SearchResultCard({user, item, setPlant}) {
+export default function SearchResultCard({user, item, setPlant, getUserPlants}) {
     const [showBtn, setShowBtn] = useState(false)
     const [noInfo, setNoInfo] = useState(false)
     const [imgContainer, setImgContainer] = useState({})
@@ -25,6 +25,7 @@ export default function SearchResultCard({user, item, setPlant}) {
             const data = await plantsAPI.getDetails(item.apiID);
             data.user = user
             const res = await plantsAPI.addPlant(data)
+            await getUserPlants() 
         } catch (error) {
             console.log(error)
         }
