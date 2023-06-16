@@ -63,8 +63,14 @@
     margin-right: 0 !important;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 750px) {
     .results-masonry {
         columns: 1;
+    }   
+}
+
+@media screen and (max-width: 900px) {
+    .results-masonry {
+        columns: 2;
     }   
 }

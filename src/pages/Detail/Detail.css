@@ -1,14 +1,10 @@
 .plant-detail-container {
     display: flex;
     margin: 0 15px;
-    /* background-color: rgba(46,139,87, .5);
-    padding: 30px 10px;
-    margin: 15px 30px; */
 }
 
 .plant-detail-img {
     background-color: var(--tan);
-    padding: 120px 20px;
 }
 
 .plant-detail-container>div {
@@ -16,6 +12,7 @@
 }
 
 .plant-detail-container img {
+    padding: 120px 20px;
     width: 80%;
 }
 
@@ -102,4 +99,28 @@
 
 .detail-btn {
     margin-bottom: 50px;
+}
+
+@media screen and (max-width: 800px) {
+    .plant-detail-container {
+        display: block;
+        margin: 0;
+    }
+    .plant-detail-container>div {
+        width: 100%;
+        margin: auto;
+    }
+    .plant-detail-container img {
+        padding: 50px 20px 65px 20px;
+        width: 60%;
+    }
+    .plant-detail-title {
+        margin: 0;
+        left: 50%;
+        top: 0%;
+        transform: translate(-50%, -50%);
+    }
+    .plant-detail-info {
+        padding: 65px 40px 35px 0;
+    }
 }

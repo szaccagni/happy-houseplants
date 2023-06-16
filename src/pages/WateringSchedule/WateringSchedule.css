@@ -43,7 +43,7 @@
 }
 
 .watered-today {
-    margin: autp;
+    margin: 7px;
 }
 
 .watered-today img {
@@ -51,6 +51,7 @@
 }
 
 .watered-container {
+    flex-wrap: wrap;
     display: flex;
     justify-content: space-evenly;
 }
