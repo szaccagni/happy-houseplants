@@ -13,6 +13,7 @@ module.exports = {
 
 async function search(req, res) {
     const endpoint = `${BASE_URL}/species-list?key=${token}&page=${req.body.pg}&q=${req.params.term}`
+    console.log(endpoint)
     const response = await fetch(endpoint).then((res) => res.json())
     const data = response.data.map( el => {
         const formattedData = {
@@ -21,8 +22,8 @@ async function search(req, res) {
             watering : el.watering,
             sunlight : el.sunlight,
             img : {
-                regular_url : el.default_image.regular_url,
-                thumbnail : el.default_image.thumbnail
+                regular_url : el.default_image ? el.default_image.regular_url : '',
+                thumbnail :  el.default_image ? el.default_image.thumbnail : ''
             }
         }
         return formattedData
