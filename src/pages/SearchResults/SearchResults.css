@@ -62,3 +62,9 @@
     margin-bottom: 7px;
     margin-right: 0 !important;
 }
+
+@media screen and (max-width: 550px) {
+    .results-masonry {
+        columns: 1;
+    }   
+}

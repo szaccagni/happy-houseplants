@@ -7,3 +7,9 @@
     display: flex;
     padding: 5px;
 }
+
+@media screen and (max-width: 550px) {
+    .search-container {
+        width: 90%;
+    }
+}
