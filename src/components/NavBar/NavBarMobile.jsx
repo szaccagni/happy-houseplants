@@ -55,7 +55,7 @@ export default function NavBarMobile({ user, setEditInventory, handleLogOut}) {
                         <Link className='nav-dropdown-item' to="/plants/schedule" onClick={handleLinkClick}>Watering Schdeule</Link>
                     </div>
                     <div>
-                        <Link className='nav-dropdown-item' to="" onClick={handleLogOut}>Log Out</Link>
+                        <Link className='nav-dropdown-item' to="" onClick={() => { handleLinkClick(); handleLogOut(); }}>Log Out</Link>
                     </div>
                 </>
                 : 

@@ -60,7 +60,7 @@ export default function SignUpForm(props) {
           <div>
             <input type="password" name="confirm" value={confirm} onChange={handleChange} placeholder='confirm password' required />
           </div>
-          <div className='btn-container'>
+          <div className='btn-container auth-btn'>
             <Button variant="contained" disabled={disable} onClick={handleSubmit}>SIGN UP</Button>
           </div>
         </div>

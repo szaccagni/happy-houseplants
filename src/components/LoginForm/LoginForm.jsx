@@ -43,7 +43,7 @@ export default function LoginForm({ setUser }) {
           <div>
             <input type="password" name="password" value={credentials.password} onChange={handleChange} required placeholder='password'/>
           </div>
-          <div className='btn-container'>
+          <div className='btn-container auth-btn'>
             <Button variant="contained" onClick={handleSubmit}>LOG IN</Button>
           </div>
         </div>
