@@ -10,6 +10,18 @@
     color: inherit;
 }
 
+.dropdown-menu a {
+    text-decoration: none;
+    color: inherit;
+    font-family: 'roboto-medium';
+}
+
+.dropdown-menu {
+    padding-top: 17px;
+    padding-bottom: 17px;
+    border-bottom: 1px solid #222;
+}
+
 .nav-grid {
     display: grid;
     grid-template-columns: 20% 60% 20%;
@@ -36,6 +48,7 @@
     font-family: 'roboto-medium';
     justify-content: flex-end;
     align-items: center;
+    color: black
 }
 
 .nav-dropdown {
@@ -80,3 +93,34 @@
 .nav-dropdown:hover .nav-dropdown-content {
     display: block;
 }  
+
+.mobile {
+    display: none;
+}
+
+.mobile-nav-bar {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.mobile-title {
+    font-size: 30px !important;
+}
+
+@media screen and (max-width: 550px) {
+    .nav-bar {
+        padding: 25px 0;
+    }
+    .mobile-title {
+        font-size: 25px !important;
+    }    
+}
+
+@media screen and (max-width: 800px) {
+    .desktop {
+        display: none;
+    }
+    .mobile {
+        display: block;
+    }
+}

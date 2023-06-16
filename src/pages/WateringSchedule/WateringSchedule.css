@@ -33,7 +33,7 @@
 }
 
 .suggestion img {
-    width: 100px;;
+    width: 150px;;
 }
 
 .suggestion div {
@@ -43,9 +43,45 @@
 }
 
 .watered-today {
-    margin-left: 25px;
+    margin: autp;
 }
 
 .watered-today img {
-    width: 100px;
+    width: 150px;
+}
+
+.watered-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.watering-form {
+    display: flex;
+    justify-content: space-around;
+}
+
+.watering-form-input{
+    width: 80%;
+}
+
+@media screen and (max-width: 550px) {
+    .watered-container {
+        flex-direction: column;
+    }
+    .watered-container div{
+        margin-bottom: 10px;
+    }
+    .suggestion img {
+        width: 200px;
+    }
+    .watered-today img {
+        width: 200px;
+    }
+    .watering-form {
+        display: block;
+    }
+    .watering-form-input {
+        width: 100%;
+        margin-bottom: 10px !important;
+    }
 }

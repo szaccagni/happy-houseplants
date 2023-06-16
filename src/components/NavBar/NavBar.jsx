@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './NavBar.css'
 import { Link } from 'react-router-dom'
 import * as userService from '../../utilities/users-service' 
+import NavBarMobile from './NavBarMobile';
 
 export default function NavBar({ user, setUser, setEditInventory }) {
 
@@ -11,8 +12,9 @@ export default function NavBar({ user, setUser, setEditInventory }) {
     }
 
     return (
-        <nav className='nav-bar'>
-            <div className='nav-grid '>
+        <>
+        <nav className='nav-bar desktop'>
+            <div className='nav-grid'>
                 <div className='nav-left'>
                     <div
                         className='nav-dropdown'
@@ -48,5 +50,9 @@ export default function NavBar({ user, setUser, setEditInventory }) {
                 
             </div>
         </nav>
+        <div className='mobile'>
+            <NavBarMobile user={user} setEditInventory={setEditInventory} handleLogOut={handleLogOut}/>
+        </div>
+        </>
     )
 }

@@ -106,16 +106,8 @@ export default function WateringSchedule({userPlants, getUserPlants}) {
         )}
             <div className="watering-card yellow-shadow">
                 <div className='watering-card-title'>Record Watering</div>
-                <div style={{display:'flex', justifyContent: 'space-around'}}>
-                    {/* <select value={selectedPlant} onChange={handlePlantChange}>
-                        <option value="">Which Plant Was Watered?</option>
-                        {userPlants.map((plant, index) => (
-                        <option key={index} value={plant._id}>
-                            {plant.common_name}
-                        </option>
-                        ))}
-                    </select> */}
-                    <FormControl style={{width: '80%'}}>
+                <div className='watering-form'>
+                    <FormControl className='watering-form-input'>
                         <InputLabel id="demo-simple-select-label">Which Plant Was Watered?</InputLabel>
                         <Select
                         id="water-plant-at-will"
@@ -137,7 +129,7 @@ export default function WateringSchedule({userPlants, getUserPlants}) {
                 <div className='watering-card-title'>Watered {calendarDate.format('MM/DD/YYYY')}</div>
                 {
                     watered.length > 0 ?
-                    <div style={{display: 'flex', justifyContent: 'center'}}>
+                    <div className='watered-container'>
                         {watered.map((plant, idx) => 
                             <Watered key={idx} plant={plant} />
                         )}

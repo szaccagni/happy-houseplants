@@ -26,7 +26,7 @@
 }
 
 .editing-link {    
-    margin: 25px auto 0 25px;
+    margin-top: 25px;
 }
 
 .editing-link a {
@@ -60,4 +60,11 @@
     cursor: pointer;
     background-color: darkred;
     border: 1px solid darkred;
+}
+
+
+@media screen and (max-width: 550px) {
+    .your-plant-container {
+        grid-template-columns: 1fr;
+    }
 }
