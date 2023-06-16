@@ -46,6 +46,9 @@ export default function NavBarMobile({ user, setEditInventory, handleLogOut}) {
         <Collapse in={menuOpen} timeout="auto" unmountOnExit>
             <div className="dropdown-menu">
                 <div className='nav-dropdown-item'>
+                    <Link to="/search">Browse All</Link>
+                </div>
+                <div className='nav-dropdown-item'>
                     <Link to="/plants" onClick={() => setEditInventory(false)}>Your Inventory</Link>
                 </div>
                 <div className='nav-dropdown-item'>
