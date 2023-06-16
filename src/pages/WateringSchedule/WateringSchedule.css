@@ -26,9 +26,9 @@
 
 .suggestion {
     display: grid;
-    grid-template-columns: .1fr .7fr .3fr;
-    margin: auto;
-    width: 70%;
+    grid-template-columns: .1fr .7fr ;
+    margin: 7px auto;
+    width: 60%;
     grid-gap: 12px;
 }
 

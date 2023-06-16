@@ -17,15 +17,15 @@ export default function Suggested({suggestion, getUserPlants}) {
     return (
         <div className='suggestion'>
             <img src={suggestion.img.regular_url}></img>
-            <div>{suggestion.common_name} needs {suggestion.watering} watering, {suggestion.wateredOn.length ? ` last watering recorded on ${suggestion.wateredOn.splice(-1)}` : 'no previous watering recorded'} </div>
-            <div>
+            <div>{suggestion.common_name} needs {suggestion.watering} watering, {suggestion.wateredOn.length ? ` last watering recorded on ${new Date(suggestion.wateredOn.slice(-1)[0]).toLocaleDateString()}` : 'no previous watering recorded'} </div>
+            {/* <div>
                 <div>watered?</div>
                 <Checkbox
                 checked={checked}
                 onChange={(e) => handleChange(e)}
                 inputProps={{ 'aria-label': 'controlled' }}
                 />
-            </div>
+            </div> */}
         </div>
     )
 }
