@@ -7,6 +7,7 @@ export default function SearchResultCard({user, item, setPlant, getUserPlants}) 
     const [showBtn, setShowBtn] = useState(false)
     const [noInfo, setNoInfo] = useState(false)
     const [imgContainer, setImgContainer] = useState({})
+    const [added, setAdded] = useState(false)
 
     const navigate = useNavigate()
 
@@ -26,6 +27,7 @@ export default function SearchResultCard({user, item, setPlant, getUserPlants}) 
             data.user = user
             const res = await plantsAPI.addPlant(data)
             await getUserPlants() 
+            setAdded(true)
         } catch (error) {
             console.log(error)
             setNoInfo(true)
@@ -57,7 +59,8 @@ export default function SearchResultCard({user, item, setPlant, getUserPlants}) 
                 'https://t4.ftcdn.net/jpg/04/99/93/31/360_F_499933117_ZAUBfv3P1HEOsZDrnkbNCt4jc3AodArl.jpg'} alt={item.common_name} />
                 {showBtn && (
                 <div className="btn-container overlay">
-                    { user && !noInfo && <Button variant="contained" onClick={addPlant}>Add Plant</Button>}
+                    { added && <div className="added">ADDED!</div>}
+                    { user && !noInfo && !added && <Button variant="contained" onClick={addPlant}>Add Plant</Button>}
                     {!noInfo && <Button variant="contained" onClick={plantDetails}>See Details</Button>}
                     {noInfo && <div className="info-error-msg">there was an error getting info on this plant, please try another</div>}
                 </div>
